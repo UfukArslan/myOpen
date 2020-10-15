@@ -33,10 +33,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
+                mPlayButton.isEnabled = s.toString().isNotEmpty()
             }
 
             override fun afterTextChanged(s: Editable?) {
-                mPlayButton.isEnabled = true
+
             }
 
         })
@@ -44,5 +45,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+gi
+
+
 
 
