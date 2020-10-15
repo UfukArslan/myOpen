@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -42,11 +43,23 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        mPlayButton.setOnClickListener(object: View.OnClickListener{
+            override fun onClick(v: View?) {
+                TODO("Not yet implemented")
+            }
+        })
+
+
+
 
     }
 }
 
-gi
+
+
+
+
+
 
 
 
