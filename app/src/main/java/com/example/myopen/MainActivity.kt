@@ -17,9 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mGreetingText=  findViewById<TextView>(R.id.activity_main_greeting_txt)
-        mNameInput= findViewById<EditText>(R.id.activity_main_name_input)
+        mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
+        mNameInput = findViewById<EditText>(R.id.activity_main_name_input)
         mPlayButton =  findViewById<Button>(R.id.activity_main_play_btn)
+
+        mPlayButton.isEnabled = false
     }
 }
+
 
