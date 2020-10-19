@@ -1,9 +1,10 @@
-package com.example.myopen
+package controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.myopen.R
 
 class GameActivity : AppCompatActivity() {
 

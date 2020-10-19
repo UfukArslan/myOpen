@@ -1,4 +1,4 @@
-package com.example.myopen
+package controller
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.myopen.R
+import model.User
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mGreetingText: TextView
     private lateinit var mNameInput: EditText
     private lateinit var mPlayButton: Button
+    private lateinit var mUser: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,8 @@ class MainActivity : AppCompatActivity() {
 
         mPlayButton.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
+                val firstName = mNameInput.text.toString()
+                mUser.mFirstName = firstName
                 val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(gameActivity)
             }
