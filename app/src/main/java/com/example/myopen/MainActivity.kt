@@ -1,5 +1,6 @@
 package com.example.myopen
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -45,12 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         mPlayButton.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
-                TODO("Not yet implemented")
+                val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
+                startActivity(gameActivity)
             }
         })
-
-
-
 
     }
 }
