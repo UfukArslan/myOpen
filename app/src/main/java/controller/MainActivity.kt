@@ -1,7 +1,6 @@
 package controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myopen.R
 import model.User
 
@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mUser = User()
+
+
 
         mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
         mNameInput = findViewById<EditText>(R.id.activity_main_name_input)
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         mPlayButton.isEnabled = false
 
-        mNameInput.addTextChangedListener(object : TextWatcher
-        {
+        mNameInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        mPlayButton.setOnClickListener(object: View.OnClickListener{
+        mPlayButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 var firstname = mNameInput.text.toString()
                 mUser.mFirstName = firstname
