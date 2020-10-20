@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        mUser = User()
 
         mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
         mNameInput = findViewById<EditText>(R.id.activity_main_name_input)
