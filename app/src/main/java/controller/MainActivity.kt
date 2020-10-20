@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
         mNameInput = findViewById<EditText>(R.id.activity_main_name_input)
         mPlayButton =  findViewById<Button>(R.id.activity_main_play_btn)
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         mPlayButton.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
+                var firstname = mNameInput.text.toString()
+                mUser.mFirstName = firstname
                 val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(gameActivity)
             }
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
 
 
 
