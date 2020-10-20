@@ -47,10 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+
         mPlayButton.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View?) {
-                val firstName = mNameInput.text.toString()
-                mUser.mFirstName = firstName
                 val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(gameActivity)
             }
@@ -58,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
 
 
 

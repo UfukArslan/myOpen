@@ -1,3 +1,8 @@
 package model
 
-class User ( var mFirstName: String)
+class User ( mFirstName: String) {
+
+    var mFirstName: String = mFirstName
+        get() { println("User=$mFirstName"); return field}
+        set(value) {println("User is setting his firstname."); field = value}
+}
