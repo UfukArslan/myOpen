@@ -8,8 +8,8 @@ class Question(var mQuestion: String, mChoiceList: List<String>, mAnswerIndex: I
             if (value == null) {
                 throw IllegalAccessException("Array cannot be null")
                                 }
-            mChoiceList = value
-                    }
+            field = value
+        }
 
 
     var mAnswerIndex: Int = 0
@@ -18,7 +18,7 @@ class Question(var mQuestion: String, mChoiceList: List<String>, mAnswerIndex: I
             if (value < 0 || value >= mChoiceList.size ) {
                 throw IllegalAccessException("Answer index is out of bound")
                 }
-            mAnswerIndex = value
+            field = value
         }
 
 
