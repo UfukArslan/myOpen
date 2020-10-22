@@ -18,11 +18,16 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gAnswer3Button: Button
     private lateinit var gAnswer4Button: Button
 
+    private lateinit var mQuestionBank: QuestionBank
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        var mQuestionBank = generateQuestions()
 
         gGreetingText =  findViewById<TextView>(R.id.activity_game_question_text)
         gAnswer1Button =  findViewById<Button>(R.id.activity_game_answer1_btn)
