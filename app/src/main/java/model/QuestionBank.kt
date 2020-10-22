@@ -2,27 +2,22 @@ package model
 
 import java.util.*
 
-class QuestionBank(asList: MutableList<Question>) {
+public class QuestionBank(mQuestionList: List<Question>, mNextQuestionIndex: Int = 0) {
 
-    private var mQuestionList: List<Question>? = null
-    private var mNextQuestionIndex = 0
 
-    fun QuestionBank(questionList: List<Question>?) {
-        mQuestionList = questionList
+    var mQuestionList: List<Question> = mQuestionList
+        get(){ Collections.shuffle(mQuestionList); return field}
 
-        // Shuffle the question list
-        Collections.shuffle(mQuestionList)
-        mNextQuestionIndex = 0
-    }
+    var mNextQuestionIndex: Int = mNextQuestionIndex
+        get(){
+            // Ensure we loop over the questions
+            if (mNextQuestionIndex == mQuestionList.size) {
+                mNextQuestionIndex = 0
+            }
 
-    fun getQuestion(): Question? {
-        // Ensure we loop over the questions
-        if (mNextQuestionIndex == mQuestionList!!.size) {
-            mNextQuestionIndex = 0
+            // Please note the post-incrementation
+            return mQuestionList[mNextQuestionIndex++]
         }
 
-        // Please note the post-incrementation
-        return mQuestionList!![mNextQuestionIndex++]
-    }
 }
 

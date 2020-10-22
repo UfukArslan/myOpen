@@ -37,7 +37,7 @@ class GameActivity : AppCompatActivity() {
     }
 
 
-    private fun generateQuestions(): QuestionBank? {
+    private fun generateQuestions(): QuestionBank {
         val question1 = Question(
             "What is the name of the current french president?",
             listOf(
@@ -89,7 +89,7 @@ class GameActivity : AppCompatActivity() {
             3
         )
         return QuestionBank(
-            Arrays.asList(
+            listOf(
                 question1,
                 question2,
                 question3,
