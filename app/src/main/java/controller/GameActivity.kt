@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myopen.R
 import model.Question
 import model.QuestionBank
-import java.util.*
 
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
@@ -55,19 +54,13 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
         var mCurrentQuestion: Question = mQuestionBank.getQuestion()
         this.displayQuestion(mCurrentQuestion)
-        Log.i("TAG", "mCurrentQuestion " + mCurrentQuestion.mAnswerIndex.toString())
+        Log.i("TAG", "GameActivity::onCreate.mCurrentQuestion " + mCurrentQuestion.mQuestion)
     }
 
-    override fun onClick(v: View) {
+    override fun onClick(v: View?) {
 
-        Log.i("TAG", "GameActivity::OnclickQuestion")
-        var responseIndex: Int = v.tag as Int;
-        Log.i("TAG", "responseIndex " + responseIndex.toString())
-        Log.i("TAG", "onClickCurrentQuestion " + this.mCurrentQuestion.mAnswerIndex.toString())
-        if (responseIndex == mCurrentQuestion.mAnswerIndex)
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
-        else
-            Toast.makeText(this, "Wrong answer", Toast.LENGTH_SHORT).show()
+        Log.i("TAG", "onClickCurrentQuestion " + mCurrentQuestion.mQuestion)
+
     }
 
     private fun displayQuestion(question: Question){
@@ -149,5 +142,6 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
 
 }
+
 
 
