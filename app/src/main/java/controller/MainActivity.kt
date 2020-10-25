@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -15,6 +16,8 @@ import model.User
 
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = MainActivity::class.java.simpleName
+
     private lateinit var mGreetingText: TextView
     private lateinit var mNameInput: EditText
     private lateinit var mPlayButton: Button
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.i("TAG", "onCreate")
 
 
 
@@ -50,9 +54,12 @@ class MainActivity : AppCompatActivity() {
 
 
         mPlayButton.setOnClickListener(object : View.OnClickListener {
+
             override fun onClick(v: View?) {
+                Log.i("TAG", "PlayButtonClick")
                 val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(gameActivity)
+
             }
         })
 

@@ -1,6 +1,7 @@
 package controller
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -13,6 +14,8 @@ import java.util.*
 
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
+
+    private val TAG = GameActivity::class.java.simpleName
 
     private lateinit var gGreetingText: TextView
     private lateinit var gAnswer1Button: Button
@@ -29,6 +32,8 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        Log.i("TAG", "onCreateGameActivity")
 
         var mQuestionBank = this.generateQuestions()
 
@@ -53,6 +58,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
+        Log.i("TAG", "OnclickQuestion")
         var responseIndex: Int = v.tag as Int;
 
         if (responseIndex == mCurrentQuestion.mAnswerIndex)
@@ -62,6 +68,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun displayQuestion(question: Question){
+        Log.i("TAG", "displayQuestion")
         gGreetingText.text = question.mQuestion
         gAnswer1Button.text = question.mChoiceList[0]
         gAnswer2Button.text = question.mChoiceList[1]
@@ -71,6 +78,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun generateQuestions(): QuestionBank {
+        Log.i("TAG", "generateQuestions")
         val question1 = Question(
             "What is the name of the current french president?",
             listOf(

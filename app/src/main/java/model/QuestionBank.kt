@@ -1,5 +1,6 @@
 package model
 
+import android.util.Log
 import java.util.*
 
 public class QuestionBank(mQuestionList: List<Question>) {
@@ -10,11 +11,14 @@ public class QuestionBank(mQuestionList: List<Question>) {
         get(){ Collections.shuffle(field); return field}
 
 
+
     public fun getQuestion(): Question {
 
         if(mNextQuestionIndex == mQuestionList.size) mNextQuestionIndex = 0
 
         return mQuestionList[mNextQuestionIndex++]
+
+
 
     }
 
