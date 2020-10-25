@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i("TAG", "onCreate")
+        Log.i("TAG", "MainActivity::onCreate")
 
 
 
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         mPlayButton.setOnClickListener(object : View.OnClickListener {
 
             override fun onClick(v: View?) {
-                Log.i("TAG", "PlayButtonClick")
+                Log.i("TAG", "MainActivity::PlayButtonClick")
                 val gameActivity = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(gameActivity)
 

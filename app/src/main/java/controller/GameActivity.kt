@@ -33,7 +33,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        Log.i("TAG", "onCreateGameActivity")
+        Log.i("TAG", "GameActivity::onCreate")
 
         var mQuestionBank = this.generateQuestions()
 
@@ -55,12 +55,15 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
         var mCurrentQuestion: Question = mQuestionBank.getQuestion()
         this.displayQuestion(mCurrentQuestion)
+        Log.i("TAG", "mCurrentQuestion " + mCurrentQuestion.mAnswerIndex.toString())
     }
 
     override fun onClick(v: View) {
-        Log.i("TAG", "OnclickQuestion")
-        var responseIndex: Int = v.tag as Int;
 
+        Log.i("TAG", "GameActivity::OnclickQuestion")
+        var responseIndex: Int = v.tag as Int;
+        Log.i("TAG", "responseIndex " + responseIndex.toString())
+        Log.i("TAG", "onClickCurrentQuestion " + this.mCurrentQuestion.mAnswerIndex.toString())
         if (responseIndex == mCurrentQuestion.mAnswerIndex)
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
         else
@@ -68,7 +71,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun displayQuestion(question: Question){
-        Log.i("TAG", "displayQuestion")
+        Log.i("TAG", "GameActivity::displayQuestion")
         gGreetingText.text = question.mQuestion
         gAnswer1Button.text = question.mChoiceList[0]
         gAnswer2Button.text = question.mChoiceList[1]
@@ -78,7 +81,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun generateQuestions(): QuestionBank {
-        Log.i("TAG", "generateQuestions")
+        Log.i("TAG", "GameActivity::generateQuestions")
         val question1 = Question(
             "What is the name of the current french president?",
             listOf(

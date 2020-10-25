@@ -1,14 +1,16 @@
 package model
 
 import android.util.Log
+import controller.MainActivity
 import java.util.*
 
 public class QuestionBank(mQuestionList: List<Question>) {
 
+    private val TAG = MainActivity::class.java.simpleName
     private var mNextQuestionIndex = 0
 
     var mQuestionList: List<Question> = mQuestionList
-        get(){ Collections.shuffle(field); return field}
+        get(){ Collections.shuffle(field); Log.i("TAG", "QuestionBank::mQuestionList.get(shuffle)"); return field}
 
 
 
