@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myopen.R
 import model.Question
@@ -42,12 +43,22 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         gAnswer3Button.tag = 2
         gAnswer4Button.tag = 3
 
+        gAnswer1Button.setOnClickListener(this)
+        gAnswer2Button.setOnClickListener(this)
+        gAnswer3Button.setOnClickListener(this)
+        gAnswer4Button.setOnClickListener(this)
+
         var mCurrentQuestion: Question = mQuestionBank.getQuestion()
         this.displayQuestion(mCurrentQuestion)
     }
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+    override fun onClick(v: View) {
+        var responseIndex: Int = v.tag as Int;
+
+        if (responseIndex == mCurrentQuestion.mAnswerIndex)
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(this, "Wrong answer", Toast.LENGTH_SHORT).show()
     }
 
     private fun displayQuestion(question: Question){
