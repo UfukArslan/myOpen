@@ -7,7 +7,7 @@ public class QuestionBank(mQuestionList: List<Question>) {
     private var mNextQuestionIndex = 0
 
     var mQuestionList: List<Question> = mQuestionList
-        get(){ mQuestionList.shuffled(); return field}
+        get(){ Collections.shuffle(field); return field}
 
 
     public fun getQuestion(): Question {
@@ -20,3 +20,5 @@ public class QuestionBank(mQuestionList: List<Question>) {
 
 
 }
+
+
