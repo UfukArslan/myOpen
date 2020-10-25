@@ -1,6 +1,7 @@
 package controller
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,7 @@ import model.QuestionBank
 import java.util.*
 
 
-class GameActivity : AppCompatActivity() {
+class GameActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var gGreetingText: TextView
     private lateinit var gAnswer1Button: Button
@@ -19,6 +20,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gAnswer4Button: Button
 
     private lateinit var mQuestionBank: QuestionBank
+    private lateinit var mCurrentQuestion: Question
 
 
 
@@ -27,13 +29,33 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        var mQuestionBank = generateQuestions()
+        var mQuestionBank = this.generateQuestions()
 
         gGreetingText =  findViewById<TextView>(R.id.activity_game_question_text)
         gAnswer1Button =  findViewById<Button>(R.id.activity_game_answer1_btn)
         gAnswer2Button =  findViewById<Button>(R.id.activity_game_answer2_btn)
         gAnswer3Button =  findViewById<Button>(R.id.activity_game_answer3_btn)
         gAnswer4Button =  findViewById<Button>(R.id.activity_game_answer4_btn)
+
+        gAnswer1Button.tag = 0
+        gAnswer2Button.tag = 1
+        gAnswer3Button.tag = 2
+        gAnswer4Button.tag = 3
+
+        var mCurrentQuestion: Question = mQuestionBank.getQuestion()
+        this.displayQuestion(mCurrentQuestion)
+    }
+
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
+    }
+
+    private fun displayQuestion(question: Question){
+        gGreetingText.text = question.mQuestion
+        gAnswer1Button.text = question.mChoiceList[0]
+        gAnswer2Button.text = question.mChoiceList[1]
+        gAnswer3Button.text = question.mChoiceList[2]
+        gAnswer4Button.text = question.mChoiceList[3]
     }
 
 
@@ -102,6 +124,8 @@ class GameActivity : AppCompatActivity() {
             )
         )
     }
+
+
 }
 
 
