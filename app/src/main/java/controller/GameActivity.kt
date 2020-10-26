@@ -35,7 +35,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
         Log.i("TAG", "GameActivity::onCreate")
 
-        var mQuestionBank = this.generateQuestions()
+        mQuestionBank = this.generateQuestions()
 
         gGreetingText =  findViewById<TextView>(R.id.activity_game_question_text)
         gAnswer1Button =  findViewById<Button>(R.id.activity_game_answer1_btn)
@@ -59,11 +59,10 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-
+        var mCurrentQuestion: Question = mQuestionBank.getQuestion()
         Log.i("TAG", "GameActivity::OnclickQuestion")
         var responseIndex: Int = v.tag as Int;
-        Log.i("TAG", "responseIndex " + responseIndex.toString())
-        Log.i("TAG", "onClickCurrentQuestion " + this.mCurrentQuestion.mAnswerIndex.toString())
+        Log.i("TAG", "onClickCurrentQuestion " + mCurrentQuestion.mAnswerIndex.toString())
         if (responseIndex == mCurrentQuestion.mAnswerIndex)
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
         else
