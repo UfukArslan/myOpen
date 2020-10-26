@@ -23,11 +23,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mPlayButton: Button
     private lateinit var mUser: User
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i("TAG", "MainActivity::onCreate")
-
 
 
         mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
