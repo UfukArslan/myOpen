@@ -33,6 +33,8 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+        println("GameActivity::onCreate()")
+
         Log.i("TAG", "GameActivity::onCreate")
 
         mQuestionBank = this.generateQuestions()
@@ -144,6 +146,31 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 question9
             )
         )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        println("GameActivity::onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("GameActivity::onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("GameActivity::onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("GameActivity::onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("GameActivity::onDestroy()")
     }
 
 

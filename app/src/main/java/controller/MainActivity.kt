@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.i("TAG", "MainActivity::onCreate")
 
+        println("MainActivity::onCreate()")
+
 
         mGreetingText =  findViewById<TextView>(R.id.activity_main_greeting_txt)
         mNameInput = findViewById<EditText>(R.id.activity_main_name_input)
@@ -64,6 +66,32 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        println("MainActivity::onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("MainActivity::onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("MainActivity::onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("MainActivity::onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("MainActivity::onDestroy()")
     }
 }
 
