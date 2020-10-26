@@ -34,7 +34,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
         Log.i("TAG", "GameActivity::onCreate")
 
-        var mQuestionBank = this.generateQuestions()
+        mQuestionBank = this.generateQuestions()
 
         gGreetingText =  findViewById<TextView>(R.id.activity_game_question_text)
         gAnswer1Button =  findViewById<Button>(R.id.activity_game_answer1_btn)
@@ -58,7 +58,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
+        var mCurrentQuestion: Question = mQuestionBank.getQuestion()
         Log.i("TAG", "onClickCurrentQuestion " + mCurrentQuestion.mQuestion)
 
     }
